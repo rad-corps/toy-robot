@@ -5,27 +5,24 @@
 
 namespace
 {
-	using enums::Command;
-	using enums::Direction;
-	
-	const std::map<Command, std::string> m_commandToString =
+	const std::map<enums::Command, std::string> m_commandToString =
 	{
-		{Command::PLACE, "PLACE"},
-		{Command::MOVE, "MOVE"},
-		{Command::LEFT, "LEFT"},
-		{Command::RIGHT, "RIGHT"},
-		{Command::REPORT, "REPORT"},
-		{Command::HELP, "HELP"},
-		{Command::QUIT, "QUIT"},
-		{Command::INVALID_COMMAND, "INVALID_COMMAND"}
+		{enums::Command::PLACE, "PLACE"},
+		{enums::Command::MOVE, "MOVE"},
+		{enums::Command::LEFT, "LEFT"},
+		{enums::Command::RIGHT, "RIGHT"},
+		{enums::Command::REPORT, "REPORT"},
+		{enums::Command::HELP, "HELP"},
+		{enums::Command::QUIT, "QUIT"},
+		{enums::Command::INVALID_COMMAND, "INVALID_COMMAND"}
 	};
 
-	const std::map<Direction, std::string> m_directionToString =
+	const std::map<enums::Direction, std::string> m_directionToString =
 	{
-		{Direction::NORTH, "NORTH"},
-		{Direction::EAST, "EAST"},
-		{Direction::SOUTH, "SOUTH"},
-		{Direction::WEST, "WEST"},
+		{enums::Direction::NORTH, "NORTH"},
+		{enums::Direction::EAST, "EAST"},
+		{enums::Direction::SOUTH, "SOUTH"},
+		{enums::Direction::WEST, "WEST"},
 	};
 }
 

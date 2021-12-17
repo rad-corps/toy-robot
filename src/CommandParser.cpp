@@ -2,9 +2,7 @@
 #include "Enums.h"
 #include <iostream>
 
-using enums::Command;
-using enums::Direction;
-
+// anonymous namespace for this compilation unit only
 namespace
 {
 	// return -1 for parse failures. 
@@ -27,10 +25,10 @@ namespace
 	}
 }
 
-Command CommandParser::parseCommand(const std::string& commandStr) const
+enums::Command CommandParser::parseCommand(const std::string& commandStr) const
 {
 	// check if this is a known command
-	Command ct;
+	enums::Command ct;
 	enums::toCommand(commandStr, ct);
 	return ct;
 }
@@ -40,7 +38,7 @@ bool CommandParser::parsePlaceCommand(const std::string& commandStr, Transform& 
 	size_t strIdx;
 
 	// verify the format of the command string
-	const std::string& CMD_PLACE = enums::toString(Command::PLACE);
+	const std::string& CMD_PLACE = enums::toString(enums::Command::PLACE);
 
 	if (commandStr.find(CMD_PLACE) != 0 || commandStr[CMD_PLACE.size()] != ' ')
 	{
@@ -72,7 +70,7 @@ bool CommandParser::parsePlaceCommand(const std::string& commandStr, Transform& 
 	{
 		return false;
 	}
-	Direction tempDir;
+	enums::Direction tempDir;
 	if (enums::toDirection(direction, tempDir))
 	{
 		out.dir = tempDir;
