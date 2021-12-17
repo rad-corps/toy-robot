@@ -50,7 +50,7 @@ My main aim for this challenge, was to build a testable, correct and simple (in 
 
 Classes and structs have been implemented where I felt they made sense, but I have not tried to shoehorn the entire design into object oriented patterns. 
 
-I have tried to demonstrate a flexible design by allowing the unit tests, file input and `std::cin` options within the same executable via optional command line flags. 
+I have tried to demonstrate a flexible design by allowing the unit tests, file input and `std::cin` options within the same executable via optional command line flags. Arguably the tests should be in their own project which could allow easy switching via setting the startup project, but I wanted to keep this as self contained as possible for easy portability between compilers. I would generally seperate tests into their own binary in a larger application.
 
 ## Feedback
 Please get in touch with me at `hulbert dot adam at gmail dot com` for feedback on this submission
