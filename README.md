@@ -2,10 +2,22 @@
 
 Technical assessment challenge for job interview process
 
+## Build and Run with Microsoft Visual Studio
+
+This solution/project was created with Visual Studio 2019. This has not been tested with other versions of Visual Studio
+
+-  Open adamh-toy-robot.sln
+- Build (CTRL+SHIFT+B)
+- Run (F5)
+
+By default the project has been configured to run without unit tests or from external file. To try these command line switches, open the project properties Configuration `Properties->Debugging->Command Arguments` and use the following flags
+- `-run-unit-tests`
+- `-file ./file_data/sample_data.txt`
+
 ## Build and Run with GCC/G++
 
 ### Pre-requisites
-For the above to work correctly, the GCC compilers must be in your system `PATH`
+For the above to work correctly, the GCC compilers must be installed and pointed to by your system `PATH`
 
 ### Build
 Open a shell in the root of the cloned project and run the following
@@ -32,25 +44,12 @@ To run the program with external file input
 ./gcc_output/toy-robot.exe -file ./file_data/sample_data.txt
 ```
 
-
-## Build and Run with Microsoft Visual Studio
-
-This solution/project was created with Visual Studio 2019. This has not been tested with other versions of Visual Studio
-
--  Open adamh-iress-toy-robot.sln
-- Build (CTRL+SHIFT+B)
-- Run (F5)
-
-By default the project has been configured to run without unit tests or from external file. To try these command line switches, open the project properties Configuration `Properties->Debugging->Command Arguments` and use the following flags
-- `-run-unit-tests`
-- `-file ./file_data/sample_data.txt`
-
 ## Message
-My main aim for this challenge, was to build a testable, correct and simple (in terms of readability and algorithm complexity) implementation of the requirements of the Toy Robot Code Challenge. All warnings from [CPP Best Practices](https://github.com/cpp-best-practices/cppbestpractices/blob/master/02-Use_the_Tools_Available.md#compilers) have been turned on for both MSVC and G++ builds to demonstrate code cleanliness. Unit tests along with a minimal unit test framework have been added to demonstrate correctness. 
+My main aim for this challenge, was to build a testable, correct and simple (in terms of readability and algorithm complexity) implementation of the requirements of the Toy Robot Code Challenge. All recommended warnings from [CPP Best Practices](https://github.com/cpp-best-practices/cppbestpractices/blob/master/02-Use_the_Tools_Available.md#compilers) have been turned on for the G++ builds to demonstrate code cleanliness and portability. Unit tests along with a minimal unit test framework have been added to demonstrate correctness. 
 
 Classes and structs have been implemented where I felt they made sense, but I have not tried to shoehorn the entire design into object oriented patterns. 
 
-I have tried to demonstrate a flexible design by allowing the unit tests, file input and `std::cin` options within the same executable via optional command line flags. 
+I have tried to demonstrate a flexible design by allowing the unit tests, file input and `std::cin` options within the same executable via optional command line flags. Arguably the tests should be in their own project which could allow easy switching via setting the startup project, but I wanted to keep this as self contained as possible for easy portability between compilers. I would generally seperate tests into their own binary in a larger application.
 
 ## Feedback
 Please get in touch with me at `hulbert dot adam at gmail dot com` for feedback on this submission
