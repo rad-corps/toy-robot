@@ -73,12 +73,17 @@ namespace app
 				robot.rotate(enums::RotateDir::RIGHT);
 				break;
 			case enums::Command::REPORT:
-				robot.report();
+				// turn on all the flags so we see the table view etc.
+				robot.report(
+					ToyRobot::ReportFlags::TRANSFORM |
+					ToyRobot::ReportFlags::TABLE_VIEW |
+					ToyRobot::ReportFlags::VERBOSE
+				);
 				break;
 			case enums::Command::HELP:
 				std::cout
 					<< "Available Commands:\n"
-					<< "   PLACE {X},{Y},{DIRECTION}\n"
+					<< "   PLACE {X},{Y},{NORTH|EAST|SOUTH|WEST}\n"
 					<< "   MOVE\n"
 					<< "   LEFT\n"
 					<< "   RIGHT\n"
