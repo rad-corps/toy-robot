@@ -1,0 +1,1 @@
+./gcc_output/toy-robot.exe -file ./file_data/sample_data.txt

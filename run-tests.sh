@@ -1,0 +1,1 @@
+./gcc_output/toy-robot.exe -run-unit-tests
