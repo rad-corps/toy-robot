@@ -6,7 +6,7 @@ Technical assessment challenge for job interview process
 
 This solution/project was created with Visual Studio 2019. This has not been tested with other versions of Visual Studio
 
--  Open adamh-iress-toy-robot.sln
+-  Open adamh-toy-robot.sln
 - Build (CTRL+SHIFT+B)
 - Run (F5)
 
