@@ -75,7 +75,7 @@ namespace test_framework_internal
 			m_testName{ testName }
 		{}
 
-		void run()
+		void run() const
 		{
 			std::cout
 				<< "--------------------------------------" << std::endl
@@ -98,7 +98,7 @@ namespace test_framework_internal
 		}
 		void runAll()
 		{
-			for (UnitTest& test : m_tests)
+			for (const UnitTest& test : m_tests)
 			{
 				test.run();
 			}
