@@ -69,3 +69,9 @@ std::ostream& operator<<(std::ostream& os, const enums::Direction& dir)
 	os << enums::toString(dir);
 	return os;
 }
+
+std::ostream& operator<<(std::ostream& os, const enums::Command& command)
+{
+	os << enums::toString(command);
+	return os;
+}

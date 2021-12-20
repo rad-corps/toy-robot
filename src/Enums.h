@@ -72,3 +72,4 @@ namespace enums
 }
 
 std::ostream& operator<<(std::ostream& os, const enums::Direction& dir);
+std::ostream& operator<<(std::ostream& os, const enums::Command& com);

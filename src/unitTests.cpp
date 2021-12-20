@@ -1,12 +1,73 @@
 #include "unitTests.h"
 #include "unitTestFramework.h"
 #include "ToyRobot.h"
+#include "CommandParser.h"
 
 namespace unit_tests
 {
 	void run()
 	{
 		INIT_TEST_FRAMEWORK();
+
+		ADD_TEST("Command Parser",
+		{
+			app::CommandParser cp;
+			IS_EQUAL( 
+				cp.parseCommand("PLACE 1,1,EAST"), 
+				enums::Command::PLACE, 
+				"Place command matched expected" 
+			);
+
+			// PLACE command without parameters still evaluates to a place command
+			// this is ok, as the next step to parse the parameters will fail
+			IS_EQUAL( 
+				cp.parseCommand("PLACE"),
+				enums::Command::PLACE, 
+				"Place command matched expected" 
+			);
+
+			IS_EQUAL( 
+				cp.parseCommand("gdsjfkg4e9g489j 4g3. vsd, wrf w,fw 23"),
+				enums::Command::INVALID_COMMAND, 
+				"Invalid command" 
+			);
+
+			IS_EQUAL( 
+				cp.parseCommand("LEFT"),
+				enums::Command::LEFT, 
+				"LEFT command" 
+			);
+
+			IS_EQUAL( 
+				cp.parseCommand("RIGHT"),
+				enums::Command::RIGHT, 
+				"RIGHT command" 
+			);
+
+			IS_EQUAL( 
+				cp.parseCommand("MOVE"),
+				enums::Command::MOVE, 
+				"MOVE command" 
+			);
+
+			IS_EQUAL( 
+				cp.parseCommand("QUIT"),
+				enums::Command::QUIT, 
+				"QUIT command" 
+			);
+
+			{
+				Transform t;
+				IS_FALSE(cp.parsePlaceCommand("PLACE", t), "PLACE Command with no parameters");
+				IS_FALSE(cp.parsePlaceCommand("PLACE 1", t), "PLACE Command with incorrect parameters");
+				IS_FALSE(cp.parsePlaceCommand("PLACE 1,1", t), "PLACE Command with incorrect parameters");
+				IS_FALSE(cp.parsePlaceCommand("PLACE 1,1,ASDJH", t), "PLACE Command with incorrect parameters");
+				IS_FALSE(cp.parsePlaceCommand("PLACE das .d, 2,sd.", t), "PLACE Command with incorrect parameters");
+				IS_TRUE(cp.parsePlaceCommand("PLACE 1,1,EAST", t), "PLACE Command with correct parameters");
+				// even though this test case is out of bounds, it is still a parse-able command
+				IS_TRUE(cp.parsePlaceCommand("PLACE 6,6,EAST", t), "PLACE Command with correct parameters");
+			}
+		});
 
 		ADD_TEST("Place Robot Out Of Bounds",
 		{
